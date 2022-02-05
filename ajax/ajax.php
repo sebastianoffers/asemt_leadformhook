@@ -25,7 +25,7 @@ if(isset( $_POST['update'])){
 
        $update =  sanitize_text_field( $_POST['update'] );
        if(isset( $_POST['email'])){
-         $email =  sanitize_text_field( $_POST['email'] );
+         $email =  sanitize_email($_POST['email'] );
         }
        if(isset( $_POST['code'])){
          $code =  sanitize_text_field( $_POST['code'] );

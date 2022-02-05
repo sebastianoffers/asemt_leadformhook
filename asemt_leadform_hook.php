@@ -61,7 +61,7 @@ if (  is_admin() ) {
 	    wp_enqueue_style('asemt_main', plugins_url('static/main.css',__FILE__ ));
 	    wp_enqueue_script('asemt_vue', plugins_url('static/vue.js',__FILE__ ));
 	    wp_enqueue_script('asemt_vuetifyjs', plugins_url('static/vuetify.js',__FILE__ ));
-			
+
 	    $script = 'const asemt_root = "https://' . esc_js($_SERVER['HTTP_HOST']) .'/";
 	             const asemt_ajax_url = "'.esc_js(ASEMT_AJAX).'";
 	             ';
@@ -119,8 +119,8 @@ function asemt_lead_setup_init() {
 						 foreach($response as $key){
 
 										 if($key['code'] == $parameters["google_key"]){
-											   $pass = $key['code'];
-												 $sendto = $key['email'];
+											   $pass = $key['code']; //checked in loop 115
+												 $sendto = sanitize_email($key['email']); //because wasnt in loop
 
 										 }
 
